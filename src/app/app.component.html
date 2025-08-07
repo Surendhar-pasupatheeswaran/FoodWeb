@@ -1,0 +1,24 @@
+<!-- app.component.html -->
+<div class="app-wrapper">
+  <div class="navigation">
+    <a routerLink="/">Home
+
+    </a>
+
+    <section class="card1" *ngIf="!isLoggedin">
+      <a routerLink="/register">Register</a>
+      <a routerLink="/login">Login</a>
+    </section>
+
+    <section class="card2" *ngIf="isLoggedin">
+      <a routerLink="/food">Food</a>
+      <a routerLink="/cart">Cart</a>
+      <a routerLink="/profile">Profile</a>
+      <a (click)="logout()">Logout</a>
+    </section>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="cart-container">
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <img [src]="item.image" alt="{{ item.name }}" class="cart-image" />
+    <div class="cart-details">
+      <h3>{{ item.name }}</h3>
+      <p>₹{{ item.price }}</p>
+    </div>
+  </div>
+
+  <hr />
+  
+  <div class="cart-summary">
+    <h3>Total: ₹{{ total }}</h3>
+     <button (click)="showPayment = true">Proceed to Payment</button>
+  </div>
+</div>
+
+<!-- Proceed to Payment Button -->
+
+<!-- Payment Card -->
+<div *ngIf="showPayment" class="payment-card">
+  <h2>Choose Payment Method</h2>
+  <select [(ngModel)]="paymentMethod">
+    <option value="debit">Debit Card</option>
+    <option value="credit">Credit Card</option>
+    <option value="netbanking">Net Banking</option>
+  </select>
+
+  <!-- Debit Card Fields -->
+  <div *ngIf="paymentMethod === 'debit' || paymentMethod === 'credit'" class="card-details">
+    <label>Card Number</label>
+    <input type="text" placeholder="Enter card number" />
+
+    <label>Card Holder Name</label>
+    <input type="text" placeholder="Enter name" />
+
+    <label>Expiry Date</label>
+    <input type="month" />
+
+    <label>CVV</label>
+    <input type="password" maxlength="3" />
+  </div>
+
+  <!-- Net Banking Fields -->
+  <div *ngIf="paymentMethod === 'netbanking'" class="netbanking-details">
+    <label>Select Bank</label>
+    <select>
+      <option>HDFC</option>
+      <option>ICICI</option>
+      <option>SBI</option>
+      <option>Axis Bank</option>
+    </select>
+
+    <label>User ID</label>
+    <input type="text" placeholder="Enter net banking user ID" />
+
+    <label>Password</label>
+    <input type="password" placeholder="Enter password" />
+  </div>
+
+  <button (click)="processPayment()">Make Payment</button>
+</div>
+
+
+<div *ngIf="paymentSuccess" class="success-message">
+  <h3>✅ Payment Successful!</h3>
+</div>

@@ -1,0 +1,12 @@
+<div class="register-container">
+  <form class="register-form" (ngSubmit)="onLogin()" #registerForm="ngForm">
+    <h2>Login</h2>
+
+    <input type="text" name="name" [(ngModel)]="user.name" required placeholder="User Name" />
+    <input type="password" name="password" [(ngModel)]="user.password" required placeholder="Password" />
+
+    <button type="submit" [disabled]="!registerForm.valid">Login</button>
+ <p style="text-align: center; cursor: pointer;" (click)="register()">
+      Don't have an account? Register here
+    </p>  </form>
+</div>

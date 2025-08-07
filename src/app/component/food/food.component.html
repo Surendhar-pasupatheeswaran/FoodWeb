@@ -1,0 +1,17 @@
+
+<div class="video-wrapper">
+  <video autoplay loop muted controls class="food-video">
+    <source src="video/food_preparation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<h2 style="text-align: center; margin-bottom: 20px">Food Menu</h2>
+<div class="grid-container">
+  <div class="food-card" *ngFor="let item of products">
+    <img [src]="item.image" alt="{{ item.name }}" />
+    <h3>{{ item.name }}</h3>
+    <p>₹{{ item.price }}</p>
+    <button (click)="addToCart(item)">Add to Cart</button>
+  </div>
+</div>
