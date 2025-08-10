@@ -52,6 +52,18 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
+
+
+Images:
+login component:
+<img width="1599" height="883" alt="image" src="https://github.com/user-attachments/assets/888ae8e0-0219-434c-a3cd-536cb1fc5068" />
+
+
+food component:
+<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/04f364ac-289c-4473-ae66-c61bbb4b6e46" />
+
+
+
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
